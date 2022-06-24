@@ -26,7 +26,7 @@ int Application::Run()
 		glfwPollEvents();
 
 		//Update
-
+		_renderer->UpdateFrame();
 
 		//Render
 		_renderer->RenderFrame();
@@ -34,6 +34,8 @@ int Application::Run()
 	}
 
 	glfwDestroyWindow(_window);
+	delete _renderer;
+
 	return 0;
 }
 

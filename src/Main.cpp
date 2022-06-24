@@ -2,6 +2,6 @@
 
 int main() 
 {
-	Application app(1280, 720, "Cellular automata");
+	Application app(1600, 900, "Cellular automata");
 	return app.Run();
 }

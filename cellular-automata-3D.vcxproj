@@ -142,6 +142,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="libraries\include\imgui\imgui.cpp" />
+    <ClCompile Include="libraries\include\imgui\imgui_demo.cpp" />
+    <ClCompile Include="libraries\include\imgui\imgui_draw.cpp" />
+    <ClCompile Include="libraries\include\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="libraries\include\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="libraries\include\imgui\imgui_tables.cpp" />
+    <ClCompile Include="libraries\include\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="src\Application\Gui.cpp" />
     <ClCompile Include="src\Render\Renderer.cpp" />
     <ClCompile Include="src\Application\Application.cpp" />
     <ClCompile Include="libraries\include\glad\glad.c" />
@@ -152,6 +160,16 @@
     <ClCompile Include="src\Render\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="libraries\include\imgui\imconfig.h" />
+    <ClInclude Include="libraries\include\imgui\imgui.h" />
+    <ClInclude Include="libraries\include\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="libraries\include\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="libraries\include\imgui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="libraries\include\imgui\imgui_internal.h" />
+    <ClInclude Include="libraries\include\imgui\imstb_rectpack.h" />
+    <ClInclude Include="libraries\include\imgui\imstb_textedit.h" />
+    <ClInclude Include="libraries\include\imgui\imstb_truetype.h" />
+    <ClInclude Include="src\Application\Gui.h" />
     <ClInclude Include="src\Render\Renderer.h" />
     <ClInclude Include="src\Application\Application.h" />
     <ClInclude Include="src\Application\Random.h" />

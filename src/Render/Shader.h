@@ -13,7 +13,7 @@
 class Shader
 {
 	//Attributes and properties
-private :
+private:
 	unsigned int _vertex;
 	unsigned int _fragment;
 	unsigned int _program;
@@ -28,7 +28,7 @@ private :
 
 
 
-public : 
+public:
 	/// <summary>
 	/// Constructor
 	/// </summary>

@@ -13,6 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers sources\Application">
+      <UniqueIdentifier>{b0001270-d8d2-4b40-94c6-ed657a16b0c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\World">
+      <UniqueIdentifier>{019d77cb-aa88-4f1c-8697-bc2392681ce4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Render">
+      <UniqueIdentifier>{95535eae-ca77-44f6-b126-9df281b2c8e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Application">
+      <UniqueIdentifier>{a8b16b29-a1de-4428-9615-ff5ed1771384}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\World">
+      <UniqueIdentifier>{1e64da4d-9006-44d6-9052-499482eb229a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Render">
+      <UniqueIdentifier>{e482ee87-2474-423b-95a3-ad69b5d2b2bd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -21,43 +39,97 @@
     <ClCompile Include="libraries\include\glad\glad.c">
       <Filter>Fichiers de ressources</Filter>
     </ClCompile>
+    <ClCompile Include="src\Application\Application.cpp">
+      <Filter>Fichiers sources\Application</Filter>
+    </ClCompile>
     <ClCompile Include="src\Application\Random.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Application</Filter>
     </ClCompile>
     <ClCompile Include="src\Application\Timer.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Render\Shader.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Application\Application.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Render\Renderer.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Application</Filter>
     </ClCompile>
     <ClCompile Include="src\Render\Camera.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render\Renderer.cpp">
+      <Filter>Fichiers sources\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render\Shader.cpp">
+      <Filter>Fichiers sources\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Application\Gui.cpp">
+      <Filter>Fichiers sources\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\include\imgui\imgui.cpp">
+      <Filter>Fichiers de ressources</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\include\imgui\imgui_demo.cpp">
+      <Filter>Fichiers de ressources</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\include\imgui\imgui_draw.cpp">
+      <Filter>Fichiers de ressources</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\include\imgui\imgui_impl_glfw.cpp">
+      <Filter>Fichiers de ressources</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\include\imgui\imgui_impl_opengl3.cpp">
+      <Filter>Fichiers de ressources</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\include\imgui\imgui_tables.cpp">
+      <Filter>Fichiers de ressources</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\include\imgui\imgui_widgets.cpp">
+      <Filter>Fichiers de ressources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Application\Application.h">
+      <Filter>Fichiers d%27en-tête\Application</Filter>
+    </ClInclude>
     <ClInclude Include="src\Application\Random.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Application</Filter>
     </ClInclude>
     <ClInclude Include="src\Application\Timer.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Render\Shader.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Application\Application.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Application</Filter>
     </ClInclude>
     <ClInclude Include="src\Render\Renderer.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Shader.h">
+      <Filter>Fichiers d%27en-tête\Render</Filter>
     </ClInclude>
     <ClInclude Include="src\Render\Camera.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Application\Gui.h">
+      <Filter>Fichiers d%27en-tête\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\include\imgui\imconfig.h">
+      <Filter>Fichiers de ressources</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\include\imgui\imgui.h">
+      <Filter>Fichiers de ressources</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\include\imgui\imgui_impl_glfw.h">
+      <Filter>Fichiers de ressources</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\include\imgui\imgui_impl_opengl3.h">
+      <Filter>Fichiers de ressources</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\include\imgui\imgui_impl_opengl3_loader.h">
+      <Filter>Fichiers de ressources</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\include\imgui\imgui_internal.h">
+      <Filter>Fichiers de ressources</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\include\imgui\imstb_rectpack.h">
+      <Filter>Fichiers de ressources</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\include\imgui\imstb_textedit.h">
+      <Filter>Fichiers de ressources</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\include\imgui\imstb_truetype.h">
+      <Filter>Fichiers de ressources</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
