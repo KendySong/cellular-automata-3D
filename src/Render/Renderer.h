@@ -9,21 +9,28 @@
 #include "Camera.h"
 #include "../Application/Gui.h"
 #include "../Application/Timer.h"
+#include "../World/World.h"
 
 #pragma once
 class Renderer
 {
 	//Attributes and properties
 private :
-	GLFWwindow* _window;
-	Shader* _shader;
-	Camera* _camera;
 	Gui* _gui;
+	GLFWwindow* _window;
 
+	World _world;
+	Camera* _camera;
 	Timer _timer;
+
+	Shader* _shader;
+	int _modelLocation;
+
+	int _nbBlocks;
 
 public :
 	Renderer(GLFWwindow* window, unsigned int width, unsigned int height);
+
 	~Renderer();
 
 	void LoadShaders();

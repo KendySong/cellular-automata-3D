@@ -3,15 +3,17 @@
 
 Gui::Gui(GLFWwindow* window)
 {
+	_fps = 0;
+	_wireframe = true;
+	_faceCulling = true;
+
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
 	ImGuiIO& io = ImGui::GetIO();
 	ImGui::StyleColorsClassic();
 	ImGui_ImplGlfw_InitForOpenGL(window, true);
 	ImGui_ImplOpenGL3_Init("#version 450");
-	_wireframe = false;
-	_faceCulling = true;
-
+	
 	//Opengl and Gpu data
 	const GLubyte* gpuName = glGetString(GL_RENDERER);
 	const GLubyte* versionName = glGetString(GL_VERSION);
@@ -20,6 +22,8 @@ Gui::Gui(GLFWwindow* window)
 		gpu += gpuName[i];
 		version += versionName[i];
 	}
+
+	ApplySettings();
 }
 
 void Gui::CreateFrame()
@@ -38,7 +42,7 @@ void Gui::DisplayRenderData()
 	ImGui::Text(version.c_str());
 
 	//FPS
-	if (_timer.GetElapsedTime() > 1)
+	if (_timer.GetElapsedTime() >= 1)
 	{
 		_framerate = std::to_string(_fps) + " fps";
 		_fps = 0;
@@ -50,19 +54,30 @@ void Gui::DisplayRenderData()
 	ImGui::Checkbox("Wireframe Render", &_wireframe);
 	ImGui::Checkbox("Face culling", &_faceCulling);
 
-	if (ImGui::Button("Apply"))
-	{
-		if (_wireframe)
-			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-		else
-			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	if (ImGui::Button("Apply"))	
+		ApplySettings();	
 
-		if (_faceCulling)
-			glEnable(GL_CULL_FACE);
-		else
-			glDisable(GL_CULL_FACE);
-	}
+	ImGui::End();
+}
 
+void Gui::ApplySettings() 
+{
+	if (_wireframe)
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	else
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+	if (_faceCulling)
+		glEnable(GL_CULL_FACE);
+	else
+		glDisable(GL_CULL_FACE);
+}
+
+void Gui::ManageSimulationSettings(float& tick, int nbBLocks) 
+{
+	ImGui::Begin("Simulation");
+	ImGui::SliderFloat("Tick", &tick, 0.01f, 10);
+	ImGui::InputInt("Number of cells", &nbBLocks);
 	ImGui::End();
 }
 

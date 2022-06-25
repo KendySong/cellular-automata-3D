@@ -18,14 +18,14 @@ private :
 	float _near;
 	float _far;
 
-	float _yaw;
-	float _pitch;
+	double _yaw;
+	double _pitch;
 
-	float _lastX;
-	float _lastY;
+	double _lastX;
+	double _lastY;
 
-	float _offsetX;
-	float _offsetY;
+	double _offsetX;
+	double _offsetY;
 
 	glm::vec3 _up;
 	glm::vec3 _front;

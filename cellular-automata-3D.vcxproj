@@ -158,6 +158,7 @@
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Render\Camera.cpp" />
     <ClCompile Include="src\Render\Shader.cpp" />
+    <ClCompile Include="src\World\World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libraries\include\imgui\imconfig.h" />
@@ -176,6 +177,8 @@
     <ClInclude Include="src\Application\Timer.h" />
     <ClInclude Include="src\Render\Camera.h" />
     <ClInclude Include="src\Render\Shader.h" />
+    <ClInclude Include="src\World\State.h" />
+    <ClInclude Include="src\World\World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,22 +2,17 @@
 
 Renderer::Renderer(GLFWwindow* window, unsigned int width, unsigned int height)
 {
+	_nbBlocks = 0;
 	_window = window;
 
 	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 	glViewport(0, 0, width, height);	
 	glClearColor(0, 0, 0, 1);
 	glEnable(GL_DEPTH_TEST);
-
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-	glEnable(GL_CULL_FACE);
-
-	//Load shaders
-	_shader = new Shader("shaders/block.vert", "shaders/block.frag");
-	glUseProgram(_shader->GetProgram());
-
+	LoadShaders();
+	
 	//Load camera
-	_camera = new Camera(_window, width, height, 90, 0.1f, 1000, 0.3f, 10, glm::vec3(0, 0, 0));
+	_camera = new Camera(_window, (float)width, (float)height, 90, 0.1f, 1000, 0.3f, 10, glm::vec3(50, 50, 50));
 	_camera->projectionLocation = glGetUniformLocation(_shader->GetProgram(), "projection");
 	_camera->viewLocation = glGetUniformLocation(_shader->GetProgram(), "view");
 	glUniformMatrix4fv(_camera->projectionLocation, 1, false, glm::value_ptr(_camera->projection));
@@ -93,9 +88,18 @@ Renderer::~Renderer()
 	delete _gui;
 }
 
+void Renderer::LoadShaders() 
+{
+	_shader = new Shader("shaders/block.vert", "shaders/block.frag");
+	glUseProgram(_shader->GetProgram());
+	_modelLocation = glGetUniformLocation(_shader->GetProgram(), "model");
+}
+
 void Renderer::UpdateFrame() 
 {
-	_camera->ProcessMovement(_window, _timer.GetElapsedTime());
+	_world.Update();
+
+	_camera->ProcessMovement(_window, (float)_timer.GetElapsedTime());
 	glUniformMatrix4fv(_camera->viewLocation, 1, false, glm::value_ptr(_camera->view));
 	_timer.Restart();
 }
@@ -103,10 +107,20 @@ void Renderer::UpdateFrame()
 void Renderer::RenderFrame()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
 	_gui->CreateFrame();
-	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+
+	_nbBlocks = _world.cellsPosition.size();
+	for (size_t i = 0; i < _nbBlocks; i++)
+	{
+		glm::mat4 currentPosition(1.0f);
+		currentPosition = glm::translate(currentPosition, _world.cellsPosition[i]);
+		glUniformMatrix4fv(_modelLocation, 1, false, glm::value_ptr(currentPosition));
+
+		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+	}
+
 	_gui->DisplayRenderData();
 	_gui->ManageCamera(*_camera);
+	_gui->ManageSimulationSettings(_world.tick, _nbBlocks);
 	_gui->Render();
 }

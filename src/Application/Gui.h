@@ -46,6 +46,10 @@ public:
 	/// </summary>
 	void DisplayRenderData();
 
+	void ApplySettings();
+
+	void ManageSimulationSettings(float& tick, int nbBLocks);
+
 	void ManageCamera(Camera& camera);
 
 	/// <summary>
