@@ -1,8 +1,7 @@
 #pragma once
 
-enum State 
+enum class State 
 {
 	Alive,
 	Dead,
-	Empty
 };

@@ -82,7 +82,10 @@
       <Filter>Fichiers de ressources</Filter>
     </ClCompile>
     <ClCompile Include="src\World\World.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\World</Filter>
+    </ClCompile>
+    <ClCompile Include="src\World\Cell.cpp">
+      <Filter>Fichiers sources\World</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -135,10 +138,13 @@
       <Filter>Fichiers de ressources</Filter>
     </ClInclude>
     <ClInclude Include="src\World\World.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\World</Filter>
     </ClInclude>
     <ClInclude Include="src\World\State.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\World</Filter>
+    </ClInclude>
+    <ClInclude Include="src\World\Cell.h">
+      <Filter>Fichiers d%27en-tête\World</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

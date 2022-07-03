@@ -3,10 +3,11 @@
 ///Summary : Contain data for rendering like position, models...
 
 #include <vector>
+#include <iostream>
 
 #include <glm/glm.hpp>
 
-#include "State.h"
+#include "Cell.h"
 #include "../Application/Timer.h"
 
 #pragma once
@@ -22,11 +23,11 @@ class World
 	//Attributes and properties
 private :
 	Timer _timerTick;
-	State _worldState[GridSize::X][GridSize::Y][GridSize::Z];
+	Cell _worldCells[GridSize::X][GridSize::Y][GridSize::Z];
 
-	//Add method foreach rules
-	
-	//std::vector of position to set uniform for instancing
+	//Game of life
+	std::vector<Cell> _caseToBorn;
+	std::vector<Cell> _caseToDelete;
 
 public :
 	std::vector<glm::vec3> cellsPosition;
@@ -36,5 +37,9 @@ public :
 
 	void Update();
 
-	void CellsMovements();
+	void GameOfLife();
+
+	std::vector<Cell> GetNeighbors(glm::ivec3& cell);
+
+	void SetCaseState(Cell& cell, State state);
 };

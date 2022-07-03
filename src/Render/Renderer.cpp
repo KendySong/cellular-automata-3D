@@ -106,16 +106,14 @@ void Renderer::UpdateFrame()
 
 void Renderer::RenderFrame()
 {
+	_nbBlocks = _world.cellsPosition.size();
+
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	_gui->CreateFrame();
 
-	_nbBlocks = _world.cellsPosition.size();
 	for (size_t i = 0; i < _nbBlocks; i++)
 	{
-		glm::mat4 currentPosition(1.0f);
-		currentPosition = glm::translate(currentPosition, _world.cellsPosition[i]);
-		glUniformMatrix4fv(_modelLocation, 1, false, glm::value_ptr(currentPosition));
-
+		glUniformMatrix4fv(_modelLocation, 1, false, glm::value_ptr(glm::translate(glm::mat4(1.0f), _world.cellsPosition[i])));
 		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 	}
 

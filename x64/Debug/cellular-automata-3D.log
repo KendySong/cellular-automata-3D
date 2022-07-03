@@ -1,0 +1,3 @@
+﻿  Renderer.cpp
+C:\Users\kndys\Desktop\cellular-automata-3D\src\Render\Renderer.cpp(109,41): warning C4267: '=' : conversion de 'size_t' en 'int', perte possible de données
+  cellular-automata-3D.vcxproj -> C:\Users\kndys\Desktop\cellular-automata-3D\x64\Debug\cellular-automata-3D.exe

@@ -4,7 +4,7 @@
 Gui::Gui(GLFWwindow* window)
 {
 	_fps = 0;
-	_wireframe = true;
+	_wireframe = false;
 	_faceCulling = true;
 
 	IMGUI_CHECKVERSION();
@@ -76,7 +76,7 @@ void Gui::ApplySettings()
 void Gui::ManageSimulationSettings(float& tick, int nbBLocks) 
 {
 	ImGui::Begin("Simulation");
-	ImGui::SliderFloat("Tick", &tick, 0.01f, 10);
+	ImGui::SliderFloat("Tick", &tick, 0.01f, 1);
 	ImGui::InputInt("Number of cells", &nbBLocks);
 	ImGui::End();
 }
